@@ -82,7 +82,7 @@ function BinaryReader:new(d)
   if type(d) == 'table' then
     self:loadBuffer(d)
   elseif type(d) == 'string' then
-    self.buffer = 
+    self.buffer = d
   end
   self.position = 0
   return self
