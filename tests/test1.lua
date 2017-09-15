@@ -7,11 +7,13 @@ function assertEquals(value, excpected, message)
 end
 
 local writer = BinaryWriter:new()
-writer:writeByte(20)
-writer:writeInt(1267)
-writer:writeFloat(1.23)
-writer:writeDouble(1.18923764)
-writer:writeString('Paulo Soreto')
+writer:writeByte(20)                -- 1
+writer:writeInt(1267)               -- 4
+writer:writeFloat(1.23)             -- 4
+writer:writeDouble(1.18923764)      -- 8
+writer:writeString('Paulo Soreto')  -- 4 + 12
+
+assertEquals(writer:getSize(), 33, 'size :(')
 
 local reader = BinaryReader:new(writer)
 assertEquals(reader:readByte(), 20, 'byte :(')
