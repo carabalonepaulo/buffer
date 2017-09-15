@@ -77,10 +77,12 @@ end
 BinaryReader = {}
 BinaryReader.__index = BinaryReader
 
-function BinaryReader:new(writer)
+function BinaryReader:new(d)
   local self = setmetatable({}, BinaryReader)
-  if type(writer) == 'table' then
-    self:loadBuffer(writer)
+  if type(d) == 'table' then
+    self:loadBuffer(d)
+  elseif type(d) == 'string' then
+    self.buffer = 
   end
   self.position = 0
   return self
